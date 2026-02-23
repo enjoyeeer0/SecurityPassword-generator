@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SecurityPassword — генератор безопасных паролей. Криптографическая генерация, приватность, без отслеживания.">
+    <meta name="keywords" content="генерация паролей, генератор паролей, безопасные пароли, password generator, криптография, privacy, security, генерация паролей онлайн, создать пароль, password online, strong password, secure password, генератор паролей бесплатно, генератор сложных паролей">
+    <meta name="author" content="enjoyeeer0">
+    <meta name="robots" content="index,follow">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <title>SecurityPassword - Генератор надёжных паролей</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><button class="nav-btn active" data-page="generator" data-i18n="nav_generator">Генератор</button></li>
+                <li><button class="nav-btn" data-page="why" data-i18n="nav_why">Почему мы</button></li>
+                <li><button class="nav-btn" data-page="how" data-i18n="nav_how">Как это работает</button></li>
+                <li>
+                    <a href="https://github.com/enjoyeeer0" target="_blank" rel="noopener noreferrer">
+                        <button class="github" data-i18n="nav_github">Мой GitHub</button>
+                    </a>
+                </li>
+                <li><button class="lang-btn" id="lang-btn">En</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pages-container">
+  ⁡⁣⁢⁣      <!-- Страница: Генератор ----------------------------------------------------->⁡
+        <div id="generator" class="page active">
+            <div class="container">
+                <h1>SecurityPassword</h1>
+                <p class="subtitle" data-i18n="gen_subtitle">Создавайте безопасные пароли за пару секунд</p>
+
+                <div class="password-section">
+                    <input type="text" id="password" readonly class="password-input">
+                    <span class="tooltip-wrap">
+                        <button id="copy-btn" class="btn btn-primary" data-i18n="gen_copy">📋 Скопировать</button>
+                        <span class="tooltip" data-i18n="tip_copy">Скопировать пароль в буфер</span>
+                    </span>
+                </div>
+
+                <div id="notification" class="notification hidden" data-i18n="gen_copied">✓ Пароль скопирован в буфер обмена!</div>
+
+                ⁡⁣⁢⁣<!-- Оценка силы пароля -->⁡
+                <div class="strength-info">
+                    <div class="strength-bar">
+                        <div id="strength-indicator" class="strength-fill"></div>
+                    </div>
+                    <div class="strength-text">
+                        <span id="strength-label">Сильный</span>
+                        <span id="strength-info-text"></span>
+                    </div>
+                </div>
+
+                <div class="options-section">
+                    <div class="option-group">
+                        <label for="length" data-i18n-prefix="gen_length">Длина пароля: <strong><span id="length-value">16</span></strong></label>
+                        <input type="range" id="length" min="8" max="32" value="16" class="slider">
+                    </div>
+                </div>
+
+                <div class="checkboxes">
+                    <label class="checkbox-label tooltip-wrap">
+                        <input type="checkbox" id="uppercase" checked> 
+                        <span data-i18n="chk_upper">Заглавные буквы (A–Z)</span>
+                        <span class="tooltip" data-i18n="tip_upper">Включает A–Z для усиления пароля</span>
+                    </label>
+                    <label class="checkbox-label tooltip-wrap">
+                        <input type="checkbox" id="lowercase" checked> 
+                        <span data-i18n="chk_lower">Строчные буквы (a–z)</span>
+                        <span class="tooltip" data-i18n="tip_lower">Включает a–z для усиления пароля</span>
+                    </label>
+                    <label class="checkbox-label tooltip-wrap">
+                        <input type="checkbox" id="numbers" checked> 
+                        <span data-i18n="chk_nums">Цифры (0–9)</span>
+                        <span class="tooltip" data-i18n="tip_nums">Добавляет цифры для большей энтропии</span>
+                    </label>
+                    <label class="checkbox-label tooltip-wrap">
+                        <input type="checkbox" id="symbols" checked> 
+                        <span data-i18n="chk_syms">Специальные символы (!@#$%^&*)</span>
+                        <span class="tooltip" data-i18n="tip_syms">Спецсимволы значительно усиливают пароль</span>
+                    </label>
+                </div>
+
+                <span class="tooltip-wrap" style="display:block">
+                    <button id="generate-btn" class="btn btn-success" data-i18n="gen_generate">🔄 Сгенерировать новый</button>
+                    <span class="tooltip" data-i18n="tip_generate">Создать новый случайный пароль</span>
+                </span>
+            </div>
+        </div>
+
+        ⁡⁣⁢⁣<!-- Страница: Почему мы ----------------------------------------------------->⁡
+        <div id="why" class="page">
+            <div class="container">
+                <h1 data-i18n="why_title">Почему выбрать SecurePass?</h1>
+                <p class="subtitle" data-i18n="why_subtitle">Мы обеспечиваем максимальную безопасность и приватность</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 data-i18n="why_card1_title">100% на клиенте</h3>
+                        <p data-i18n="why_card1_text">Все пароли генерируются только в вашем браузере. Никакие данные не отправляются на серверы.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3 data-i18n="why_card2_title">Криптографическая стойкость</h3>
+                        <p data-i18n="why_card2_text">Используем window.crypto.getRandomValues() — стандарт безопасности для генерации случайных чисел.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚫</div>
+                        <h3 data-i18n="why_card3_title">Без отслеживания</h3>
+                        <p data-i18n="why_card3_text">Нет аналитики, отслеживания, рекламы. Вы не отслеживаетесь, ваша личная жизнь в безопасности.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3 data-i18n="why_card4_title">Ничего не сохраняется</h3>
+                        <p data-i18n="why_card4_text">Пароли не сохраняются в localStorage, cookies или памяти. Каждый раз — чистая генерация.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3 data-i18n="why_card5_title">Откуп-исходный код</h3>
+                        <p data-i18n="why_card5_text">Весь код открыт и проверяемый. Вы видите ровно то, что используется для генерации паролей.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-i18n="why_card6_title">Быстро и просто</h3>
+                        <p data-i18n="why_card6_text">Один клик — готов новый пароль. Без сложного интерфейса, только необходимое.</p>
+                    </div>
+                </div>
+
+                <div class="comparison-box">
+                    <h2 data-i18n="why_table_title">Сравнение с другими генераторами</h2>
+                    <table class="comparison-table">
+                        <tr>
+                            <th data-i18n="why_table_func">Функция</th>
+                            <th data-i18n="why_table_securepass">SecurePass</th>
+                            <th data-i18n="why_table_lastpass">LastPass</th>
+                            <th data-i18n="why_table_other">Прочие</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="why_table_row1">Генерация на клиенте</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="why_table_row2">Без отслеживания</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="why_table_row3">Открытый исходный код</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                            <td class="check">✓*</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="why_table_row4">Бесплатно</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓*</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="why_table_row5">Без регистрации</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                            <td class="check">✓</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        ⁡⁣⁢⁣<!-- Страница: Как это работает ----------------------------------------------------->⁡
+        <div id="how" class="page">
+            <div class="container">
+                <h1 data-i18n="how_title">Как это работает?</h1>
+                <p class="subtitle" data-i18n="how_subtitle">Полная прозрачность технического процесса</p>
+
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 data-i18n="how_step1_title">Выбор параметров</h3>
+                            <p data-i18n="how_step1_text">Вы выбираете длину пароля (8–32 символов) и типы символов: заглавные, строчные, цифры, специальные символы.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 data-i18n="how_step2_title">Криптографическая генерация</h3>
+                            <p data-i18n="how_step2_text"><strong>window.crypto.getRandomValues()</strong> — используется для генерации криптографически стойких случайных чисел. Это стандарт W3C, поддерживаемый всеми современными браузерами.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 data-i18n="how_step3_title">Преобразование в символы</h3>
+                            <p data-i18n="how_step3_text">Случайные числа преобразуются в символы из выбранного набора. Каждое число соответствует позиции в наборе символов.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 data-i18n="how_step4_title">Отображение результата</h3>
+                            <p data-i18n="how_step4_text">Готовый пароль показывается в поле ввода. Вы можете скопировать его в буфер обмена одной кнопкой.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-box">
+                    <h2 data-i18n="how_sec_title">🔐 Гарантии безопасности</h2>
+                    <ul>
+                        <li data-i18n="how_sec1"><strong>Никаких серверов:</strong> Весь код работает локально в вашем браузере.</li>
+                        <li data-i18n="how_sec2"><strong>Никакого логирования:</strong> Мы не видим и не сохраняем ваши пароли.</li>
+                        <li data-i18n="how_sec3"><strong>Никакой аналитики:</strong> Нет Google Analytics, Yandex.Metrica, Mixpanel и прочих трекеров.</li>
+                        <li data-i18n="how_sec4"><strong>Никаких cookies:</strong> Пароли не сохраняются в браузере между сеансами.</li>
+                        <li data-i18n="how_sec5"><strong>Стандартная криптография:</strong> window.crypto.getRandomValues() — одобрено OWASP и NIST.</li>
+                    </ul>
+                </div>
+
+                <div class="entropy-box">
+                    <h2 data-i18n="how_entropy_title">📊 Об энтропии пароля</h2>
+                    <p data-i18n="how_entropy1">Энтропия пароля показывает, насколько сложно его подобрать перебором.</p>
+                    <p data-i18n="how_entropy2"><strong>Формула:</strong> Энтропия = log₂(размер_алфавита ^ длина_пароля)</p>
+                    <ul>
+                        <li data-i18n="how_entropy3"><strong>94 символа (буквы + цифры + спецсимволы):</strong> 16-символный пароль = 105 бит энтропии</li>
+                        <li data-i18n="how_entropy4"><strong>Это означает:</strong> 2^105 возможных комбинаций ≈ 4 × 10³¹ комбинаций</li>
+                        <li data-i18n="how_entropy5"><strong>Время взлома:</strong> Даже при 1 триллион попыток/сек потребуется миллионы лет</li>
+                    </ul>
+                </div>
+
+                <div class="trust-box">
+                    <h2 data-i18n="how_trust_title">✅ Почему вам можно верить?</h2>
+                    <p data-i18n="how_trust1">Мы прозрачны в коде, безопасны по дизайну и не требуем от вас никакого доверия к нашим серверам — потому что их нет.</p>
+                    <p data-i18n="how_trust2">Откройте DevTools (F12) → Console и выполните любую проверку. Вы видите все запросы сети — их нет, кроме загрузки страницы.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
