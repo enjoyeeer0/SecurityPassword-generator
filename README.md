@@ -4,7 +4,7 @@
   <p>Простой, быстрый и максимально безопасный генератор надёжных паролей</p>
 
   <p>
-    <a href="https://security-password-ruddy.vercel.app/" target="_blank">
+    <a href="https://securitypassword-puce.vercel.app/" target="_blank">
       <img src="https://img.shields.io/badge/Посмотреть_сайт-18181B?style=for-the-badge&logo=vercel&logoColor=white" alt="Посмотреть сайт">
     </a>
     &nbsp;&nbsp;
